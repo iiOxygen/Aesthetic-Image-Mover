@@ -25,7 +25,7 @@ Modify the config.ini file with the following content:
 root_folder = insert\\folder\\path\\here
 output_folder = insert\\output\\folder\\path\\here
 ```
-Replace `insert\\folder\\path\\here`
+Replace ``insert\\folder\\path\\here``
  with the paths to the folder containing the PNG images you want to process and the output folder, respectively.
 
 Run the script:
