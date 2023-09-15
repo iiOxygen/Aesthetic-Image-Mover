@@ -7,6 +7,11 @@ The script processes a folder containing PNG images and sorts them into sub-fold
 
 **Usage**
 
+Clone the repo:
+```
+git clone https://github.com/iiOxygen/SD-WebUI-Aesthetic-Image-Mover.git
+```
+
 Install the required dependencies:
 
 ```
