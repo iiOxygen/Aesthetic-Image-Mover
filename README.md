@@ -33,3 +33,5 @@ Run the script:
 ```
 python Mover.py
 ```
+
+For obvious reasons, I recommend using https://github.com/dvruette/sd-webui-fabric along with the main extension.
