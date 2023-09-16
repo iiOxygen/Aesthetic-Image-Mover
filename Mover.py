@@ -41,6 +41,8 @@ def process_files(root_folder, output_folder):
                 
                 # Move the file to the target folder
                 shutil.move(file_path, os.path.join(target_folder, filename))
+
+                print(f"Moved {filename} to {target_folder}")
         
         except PermissionError as e:
             # Print an error message if there is a permission error
