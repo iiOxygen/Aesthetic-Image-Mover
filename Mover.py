@@ -1,5 +1,5 @@
 import os
-from os.path import join, isdir
+from os.path import join
 from PIL import Image
 import shutil
 import configparser
@@ -38,10 +38,7 @@ def process_files(root_folder, output_folder):
                 img.close()
 
             # Determine the target folder based on the aesthetic score
-            if aesthetic_score >= 7.0:
-                score_folder = "aesthetic"
-            else:
-                score_folder = "not_aesthetic"
+            score_folder = "aesthetic" if aesthetic_score >= 7.0 else "not_aesthetic"
 
             # Create a decimal folder name based on the aesthetic score
             decimal_folder = "{:.1f}".format(aesthetic_score)
