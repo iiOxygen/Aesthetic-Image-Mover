@@ -26,26 +26,28 @@ def process_files(root_folder, output_folder):
                 # Get the aesthetic score from the PNG info
                 aesthetic_score = float(png_info.get("aesthetic_score", 0.0))
 
-                 # Print the file name and its aesthetic score
-                print(f"File: {filename}, Aesthetic Score: {aesthetic_score}")
-                
+            # close the image file explicitly
+            img.close()
+
                 # Determine the target folder based on the aesthetic score
-                if aesthetic_score >= 7.0:
+            if aesthetic_score >= 7.0:
                     score_folder = "aesthetic"
-                else:
+            else:
                     score_folder = "not_aesthetic"
                 
                 # Create a decimal folder name based on the aesthetic score
-                decimal_folder = "{:.1f}".format(aesthetic_score)
+            decimal_folder = "{:.1f}".format(aesthetic_score)
                 
                 # Create the target folder if it doesn't exist
-                target_folder = os.path.join(output_folder, score_folder, decimal_folder)
-                os.makedirs(target_folder, exist_ok=True)
+            target_folder = os.path.join(output_folder, score_folder, decimal_folder)
+            os.makedirs(target_folder, exist_ok=True)
                 
                 # Move the file to the target folder
-                shutil.move(file_path, os.path.join(target_folder, filename))
-
-                print(f"Moved {filename} to {target_folder}")
+            try:
+                    shutil.move(file_path, os.path.join(target_folder, filename))
+                    print(f"Moved {filename} to {target_folder}")
+            except PermissionError as e:
+                    print(f"Error moving file {file_path}: {e}")
         
         except PermissionError as e:
             # Print an error message if there is a permission error
