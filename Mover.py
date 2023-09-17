@@ -34,9 +34,6 @@ def process_files(root_folder, output_folder):
                 # Get the aesthetic score from the PNG info
                 aesthetic_score = float(png_info.get("aesthetic_score", 0.0))
 
-                # close the image file explicitly
-                img.close()
-
             # Determine the target folder based on the aesthetic score
             score_folder = "aesthetic" if aesthetic_score >= 7.0 else "not_aesthetic"
 
